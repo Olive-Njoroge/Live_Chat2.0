@@ -48,13 +48,16 @@ export default function Home({ user }) {
   }, []);
 
   const fetchRooms = async () => {
-    try {
-      const res = await getRooms();
-      setRooms(res.data);
-    } catch (error) {
-      console.error('Failed to fetch rooms:', error);
-    }
-  };
+  try {
+    const res = await getRooms();
+    console.log("Fetched rooms:", res.data); // Debug log
+    const roomList = Array.isArray(res.data) ? res.data : res.data?.rooms || [];
+    setRooms(roomList);
+  } catch (error) {
+    console.error('Failed to fetch rooms:', error);
+    setRooms([]); // fallback to avoid crash
+  }
+};
 
   const handleCreateRoom = async () => {
     if (!newRoomName.trim()) return;
