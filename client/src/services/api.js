@@ -1,8 +1,8 @@
 import axios from 'axios';
 import io from 'socket.io-client'
 
-const backendBaseUrl = "http://localhost:5000";
-const API_BaseUrl = "http://localhost:5000/api";
+const backendBaseUrl = import.meta.env.VITE_API_BASE_URL;
+const API_BaseUrl = `${backendBaseUrl}/api`;
 
 const API = axios.create({
     baseURL : API_BaseUrl
@@ -24,5 +24,5 @@ export const getMessages = (roomId) => {
    return API.get(`/messages/${roomId}`);
 }
 
-export const socket = io(backendBaseUrl, {autoconnect: false});
+export const socket = io(backendBaseUrl, {autoConnect: false});
 
