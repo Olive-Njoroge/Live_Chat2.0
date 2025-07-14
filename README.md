@@ -1,4 +1,4 @@
-# 🧠 Live Chat App (First Fullstack Project)
+# 🧠 Live Chat App (First Fullstack Live Project)
 
 This is my **first fullstack live website**, a real-time chat application built using the **MERN stack** with **Socket.IO** for instant messaging. Users can register, join or create chat rooms, and send/receive messages live.
 
